@@ -569,7 +569,7 @@ func scroll_to_bottom() -> void:
 
 
 func get_console_color_html(color_type : String) -> String:
-	var color : Color = Console.color_dictionary[color_type]
+	var color : Color = color_dictionary[color_type]
 	if ProjectSettings.has_setting(color_type):
 		color = ProjectSettings.get_setting(color_type)
 	return color.to_html()
