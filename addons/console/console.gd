@@ -405,8 +405,9 @@ func _ready() -> void:
 
 func _input(event : InputEvent) -> void:
 	if (event is InputEventKey):
-		if (event.physical_keycode == KEY_QUOTELEFT): # ~ key.
-			if (event.physical_keycode == KEY_QUOTELEFT and event.is_command_or_control_pressed()): # Toggles console size or opens big console.
+		var was_console_key: bool = event.get_physical_keycode_with_modifiers() == KEY_QUOTELEFT or event.get_physical_keycode_with_modifiers() == KEY_SECTION
+		if (was_console_key):
+			if (was_console_key and event.is_command_or_control_pressed()): # Toggles console size or opens big console.
 				if (event.pressed):
 					if (v_box_container.visible):
 						toggle_size()
