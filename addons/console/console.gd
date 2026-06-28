@@ -280,9 +280,7 @@ func _enter_tree() -> void:
 			v_box_container.theme = theme
 
 	if ProjectSettings.has_setting(CONSOLE_TABSTOP):
-		tab_string = ""
-		for i in range(ProjectSettings.get_setting(CONSOLE_TABSTOP)):
-			tab_string += " "
+		tab_string = "".lpad(ProjectSettings.get_setting(CONSOLE_TABSTOP), " ")
 
 	canvas_layer.layer = ProjectSettings.get_setting(&"console/canvas_layer", 3)
 	add_child(canvas_layer)
